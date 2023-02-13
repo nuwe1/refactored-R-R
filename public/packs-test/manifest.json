@@ -1,0 +1,26 @@
+{
+  "application.js": "/packs-test/js/application-d45a235a61409eefeabb.js",
+  "application.js.map": "/packs-test/js/application-d45a235a61409eefeabb.js.map",
+  "entrypoints": {
+    "application": {
+      "js": [
+        "/packs-test/js/application-d45a235a61409eefeabb.js"
+      ],
+      "js.map": [
+        "/packs-test/js/application-d45a235a61409eefeabb.js.map"
+      ]
+    },
+    "vue_pack": {
+      "js": [
+        "/packs-test/js/vue_pack-c5e92a8699a516124be4.js"
+      ],
+      "js.map": [
+        "/packs-test/js/vue_pack-c5e92a8699a516124be4.js.map"
+      ]
+    }
+  },
+  "vendors~actioncable.js": "/packs-test/js/vendors~actioncable-a9a439982dea30932847.chunk.js",
+  "vendors~actioncable.js.map": "/packs-test/js/vendors~actioncable-a9a439982dea30932847.chunk.js.map",
+  "vue_pack.js": "/packs-test/js/vue_pack-c5e92a8699a516124be4.js",
+  "vue_pack.js.map": "/packs-test/js/vue_pack-c5e92a8699a516124be4.js.map"
+}

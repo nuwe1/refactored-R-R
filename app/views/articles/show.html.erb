@@ -1,0 +1,48 @@
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-half">
+        <h1 class="title"><%= @article.title %></h1>
+        <p class="subtitle"><%= @article.released_at %></p>
+        <div class="content"><%= simple_format @article.body %></div>
+        <liking></liking>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="ratings">
+  <div class="container">
+    <div class="column is-half">
+      <hr class="has-background-dark" />
+      <h2 class="subtitle is-3">Was this article helpful???</h2>
+      <hr class="has-background-dark" />
+      <h3 class="subtitle is-5"><%= @article.ratings.count %> reader(s) have given a weighted average rating of 
+        <strong><%= @article.ratings.average(:rating)&.round(1) || 0 %> </strong> out of 10
+      </h3>
+      <div class="columns">
+        <div class="column">
+          <p class="is-size-4">
+            <strong>Your Rating out of 10:</strong>  
+          </p>
+        </div>
+        <div class="column">
+          <%= render 'ratings/form'%>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="comments mb-4">
+  <div class="container">
+    <div class="column is-half">
+      <h2 class="subtitle is-5"><strong><%= @article.comments.count %></strong> Comment (s)</h2>
+      <hr class="has-background-light"/>
+      <%= render @article.comments%>
+      <div class="comment-form">
+        <hr class="has-background-light"/>
+        <h3 class="subtitle is-3"> Leave a reply</h3>
+        <%= render 'comments/form'%>
+      </div>
+    </div>
+  </div> 
+</section>

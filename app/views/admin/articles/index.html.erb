@@ -1,0 +1,32 @@
+<section class="section">
+  <div class="container">
+    <h1 class="title">Articles</h1>
+
+    <table class="table is-fullwidth">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Excerpt</th>
+          <th>Release Date</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @articles.each do |article| %>
+          <tr>
+            <td><%= article.title %></td>
+            <td><%= article.excerpt %></td>
+            <td><%= article.released_at %></td>
+            <td>
+              <div class="buttons">
+                <%= link_to 'View', admin_article_path(article), class: 'button' %>
+                <%= link_to 'Edit', edit_admin_article_path(article), class: 'button is-warning' %>
+                <%= link_to 'Delete', admin_article_path(article), method: :delete, class: 'button is-danger', data: { confirm: "Delete \"#{article.title}\"?" } %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>

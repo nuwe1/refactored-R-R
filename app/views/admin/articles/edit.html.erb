@@ -1,0 +1,49 @@
+<section class="section">
+  <div class="container">
+    <h1 class="title">Articles</h1>
+    <h2 class="subtitle"><%= @article.title %></h2>
+
+    <div class="columns">
+      <div class="column is-two-thirds">
+        <% if @article.errors.present? %>
+          <div class="notification is-danger">
+            <ul>
+              <% @article.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <%= form_for [:admin, @article], data: { turbo: false } do |f| %>
+          <div class="field">
+            <%= f.label :title %>
+            <div class="control">
+              <%= f.text_field :title, class: 'input', placeholder: 'Title' %>
+            </div>
+          </div>
+
+          <div class="field">
+            <%= f.label :excerpt %>
+            <div class="control">
+              <%= f.text_area :excerpt, class: 'textarea', placeholder: 'Excerpt' %>
+            </div>
+          </div>
+
+          <div class="field">
+            <%= f.label :body %>
+            <div class="control">
+              <%= f.text_area :body, class: 'textarea', placeholder: 'Body' %>
+            </div>
+          </div>
+
+          <div class="field is-grouped">
+            <div class="control">
+              <%= f.submit class: 'button is-link' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,96 @@
+<section class="section">
+  <div class="container">
+    <h1 class="title">Articles</h1>
+    <h2 class="subtitle"><%= @article.title %></h2>
+
+    <div class="content">
+      <dl>
+        <dt>Excerpt</dt>
+        <dd><%= @article.excerpt %></dd>
+
+        <dt>Body</dt>
+        <dd><%= simple_format @article.body %></dd>
+
+        <dt>Release Date</dt>
+        <dd><%= @article.released_at %></dd>
+      </dl>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="table-container">
+    <h2 class="title" > Comments table</h2>
+    <table class="table is-fullwidth table is-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Comment</th>
+        <th>Create Date</th>
+        <th>Status</th>
+        <th> Remove</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @article.comments.each do |comment| %>
+        <tr>
+          <td><%= comment.name %></td>
+          <td><%= comment.body %></td>
+          <td>
+          <% if comment.is_approved?  %>
+          <%= link_to 'Reject', admin_article_comment_path(@article, comment), method: :patch   %>
+          <% else %>
+          <%= link_to 'Approve', admin_article_comment_path(@article, comment), method: :patch %>
+          <% end %>
+          </td>
+          <td><%= comment.created_at %></td>
+          <td>
+            <div class="buttons">
+              <%= link_to 'Delete', admin_article_comment_path(@article,comment), method: :delete, class: 'button is-danger', data: { confirm: "Delete \"#{comment.body}\"?" } %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="table-container">
+    <h2 class="title"> Ratings table</h2>
+    <table class="table is-fullwidth table is-bordered">
+    <thead>
+      <tr>
+        <th>Ratings</th>
+        <th>Status</th>
+        <th>Create Date</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @article.ratings.each do |rating| %>
+        <tr>
+          <td><%= rating.rating %></td>
+          <td>
+          <% if rating.is_approved?  %>
+          <%= link_to 'Reject', admin_article_rating_path(@article, rating), method: :patch   %>
+          <% else %>
+          <%= link_to 'Approve', admin_article_rating_path(@article, rating), method: :patch %>
+          <% end %>
+          </td>
+          <td><%= rating.created_at %></td>
+          <td>
+            <div class="buttons">
+              <%= link_to 'Delete', admin_article_rating_path(@article,rating), method: :delete, class: 'button is-danger', data: { confirm: "Delete \"#{rating.rating}\"?" } %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+    </div>
+  </div>
+</section>
+

@@ -1,7 +1,6 @@
-# Razeware - Junior Developer - Coding Challenge
+# Ruby on Rails developer - Coding Challenge
 
-This is a vanilla Ruby on Rails application that will be used as part of the
-Junior Developer interview process.
+This is a vanilla Ruby on Rails application that will be used as part of demonstration of Ruby on Rails developer skills.
 
 The following instructions is the recommended way to get the application up and
 running for development. However, feel free to setup the application according
@@ -16,7 +15,8 @@ following setup instructions.
 
 1. Clone the repo.
    ```
-   git clone git@github.com:razeware-engineering/ratings-and-reviews-nuwe1.git
+   git clone gitgit@github.com:nuwe1/refactored-R-R.git.
+
    ```
 
 2. Build the docker container.
